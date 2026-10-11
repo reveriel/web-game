@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, maximum-scale=1, user-scalable=no">
+<meta name="theme-color" content="#faf8f4" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#16151a" media="(prefers-color-scheme: dark)">
+<meta name="description" content="2048 —— 滑动合并相同数字，冲击 2048 方块。移动端触控与键盘均可玩。">
+<title>2048 · 合并数字</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%231b1a17'/%3E%3Crect x='7' y='7' width='22' height='22' rx='5' fill='%23eee4da'/%3E%3Crect x='35' y='7' width='22' height='22' rx='5' fill='%23eee4da' opacity='.45'/%3E%3Crect x='7' y='35' width='22' height='22' rx='5' fill='%23f2b179'/%3E%3Crect x='35' y='35' width='22' height='22' rx='5' fill='%23edc22e'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="style.css">
+<!-- Cloudflare Web Analytics --><script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "6fc01bf3ac5e457ba1bd16b91e5b653e"}'></script><!-- End Cloudflare Web Analytics -->
+</head>
+<body>
+
+<div class="app">
+
+  <header class="topbar">
+    <div class="brand">
+      <svg class="logo" viewBox="0 0 64 64" aria-hidden="true">
+        <rect width="64" height="64" rx="14" fill="var(--logo-bg)"/>
+        <rect x="7" y="7" width="22" height="22" rx="5" fill="var(--logo-a)"/>
+        <rect x="35" y="7" width="22" height="22" rx="5" fill="var(--logo-a)" opacity=".45"/>
+        <rect x="7" y="35" width="22" height="22" rx="5" fill="var(--logo-b)"/>
+        <rect x="35" y="35" width="22" height="22" rx="5" fill="var(--logo-c)"/>
+      </svg>
+      <div class="brand-text">
+        <h1>2048</h1>
+        <p>合并数字，冲击 2048</p>
+      </div>
+    </div>
+
+    <div class="controls">
+      <button id="btn-sound" class="icon-btn" type="button" aria-label="音效开关" aria-pressed="true" title="音效开关">
+        <svg class="i-on" viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M4 9.5h3.2L11.5 6v12L7.2 14.5H4z"/>
+          <path d="M15.2 9.2a4 4 0 0 1 0 5.6"/>
+          <path d="M17.8 6.6a7.6 7.6 0 0 1 0 10.8"/>
+        </svg>
+        <svg class="i-off" viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M4 9.5h3.2L11.5 6v12L7.2 14.5H4z"/>
+          <path d="m15.5 9.5 5 5"/><path d="m20.5 9.5-5 5"/>
+        </svg>
+      </button>
+
+      <button id="btn-pause" class="icon-btn" type="button" aria-label="暂停" title="暂停 / 继续">
+        <svg class="i-pause" viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M9 5v14M15 5v14"/>
+        </svg>
+        <svg class="i-play" viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M7 4.8 19 12 7 19.2z"/>
+        </svg>
+      </button>
+
+      <button id="btn-restart" class="icon-btn" type="button" aria-label="重新开始" title="重新开始">
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M20 12a8 8 0 1 1-2.4-5.7"/>
+          <path d="M20 4.5V10h-5.4"/>
+        </svg>
+      </button>
+    </div>
+  </header>
+
+  <main class="stage">
+    <div class="side">
+
+      <div class="stats">
+        <div class="stat" id="score-box">
+          <span class="stat-label">分数</span>
+          <strong id="score">0</strong>
+        </div>
+        <div class="stat">
+          <span class="stat-label">最高分</span>
+          <strong id="best">0</strong>
+        </div>
+      </div>
+
+      <p class="howto">
+        <strong>怎么玩</strong>
+        <span class="hint-touch">在棋盘上向四个方向滑动，所有方块一起移动；两个相同数字相撞就合并成它们的和。每走一步会随机出现一个新方块，棋盘塞满且无法合并时游戏结束。</span>
+        <span class="hint-keys">使用 <kbd>↑</kbd> <kbd>↓</kbd> <kbd>←</kbd> <kbd>→</kbd>（或 <kbd>W</kbd><kbd>A</kbd><kbd>S</kbd><kbd>D</kbd>）移动方块；两个相同数字相撞会合并成它们的和。每走一步随机出现一个新方块，棋盘塞满且无法合并时游戏结束。<kbd>P</kbd> 暂停，<kbd>R</kbd> 重开。</span>
+      </p>
+
+    </div>
+
+    <div class="board-wrap">
+      <div id="board" role="application" aria-label="2048 棋盘">
+        <div id="grid" aria-hidden="true"></div>
+        <div id="tiles" aria-hidden="true"></div>
+        <div id="fx" aria-hidden="true"></div>
+      </div>
+    </div>
+  </main>
+
+  <!-- 广告位占位（上线时填入广告位代码，注意不要遮住棋盘与按钮）
+  <div id="ad-slot" aria-hidden="true"></div>
+  -->
+
+  <footer class="footer">
+    <span>纯前端小游戏 · 无需联网 · 最高分保存在本机</span>
+    <span class="dot" aria-hidden="true"></span>
+    <span>用方向键 / 滑动操作</span>
+    <span class="dot" aria-hidden="true"></span>
+    <a class="footer-link" href="https://docs.google.com/forms/d/e/1FAIpQLSfHGUfgAlViT3TFiVtJi_EpJ4ioUpd9oGyaJ7rehEV-gBH_PA/viewform?usp=pp_url&amp;entry.758527617=2048%E3%82%B2%E3%83%BC%E3%83%A0" target="_blank" rel="noopener">ご意見・フィードバック</a>
+  </footer>
+
+</div>
+
+<div id="overlay" class="overlay" hidden>
+  <div class="overlay-card" role="dialog" aria-modal="true" aria-labelledby="ov-title">
+    <div class="ov-badge" id="ov-badge">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3.4 14.9 9l6.1.9-4.4 4.3 1 6.1-5.6-2.9-5.6 2.9 1-6.1L3 9.9 9.1 9z"/></svg>
+    </div>
+    <h2 id="ov-title">2048</h2>
+    <p id="ov-text">滑动合并相同数字。</p>
+    <div class="ov-stats" id="ov-stats" hidden>
+      <div class="ov-stat"><span id="ov-score">0</span><small>本局分数</small></div>
+      <div class="ov-stat"><span id="ov-best">0</span><small>最高分</small></div>
+    </div>
+    <div class="ov-actions">
+      <button id="ov-primary" class="btn btn-primary" type="button">开始游戏</button>
+      <button id="ov-secondary" class="btn btn-ghost" type="button">重新开始</button>
+    </div>
+
+    <!-- 分数分享卡：仅在 win / lose 时显示 -->
+    <div class="ov-share" id="ov-share" hidden>
+      <p class="ov-share-title">スコアカード</p>
+      <div id="share-preview" class="share-preview" role="img" aria-label="スコアカードのプレビュー"></div>
+      <div class="share-actions">
+        <button id="btn-share-x" class="btn btn-primary btn-sm" type="button">Xでシェア</button>
+        <button id="btn-save-png" class="btn btn-ghost btn-sm" type="button">画像を保存</button>
+      </div>
+      <p class="share-hint">カードを保存して投稿できます</p>
+    </div>
+  </div>
+</div>
+
+<script src="game.js"></script>
+</body>
+</html>
