@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>プライバシーポリシー｜2048 ゲーム</title>
+<meta name="description" content="2048 ゲームにおける個人情報・利用データの取扱い方針です。ゲームの進行状況やスコアはブラウザ内（localStorage）にのみ保存され、当方のサーバーへ送信・収集されません。アクセス解析（Cloudflare Web Analytics）とフィードバック（Google フォーム）についても説明します。">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://www.reveriel.com/web-game/privacy.html">
+<meta property="og:type" content="website">
+<meta property="og:title" content="プライバシーポリシー｜2048 ゲーム">
+<meta property="og:description" content="スコアや設定はブラウザ内にのみ保存。サーバーへ送信・収集しません。アクセス解析とお問い合わせの取扱いについて定めます。">
+<meta property="og:locale" content="ja_JP">
+<meta property="og:url" content="https://www.reveriel.com/web-game/privacy.html">
+<meta property="og:image" content="https://www.reveriel.com/web-game/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://www.reveriel.com/web-game/og-image.png">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%231b1a17'/%3E%3Crect x='7' y='7' width='22' height='22' rx='5' fill='%23eee4da'/%3E%3Crect x='35' y='7' width='22' height='22' rx='5' fill='%23eee4da' opacity='.45'/%3E%3Crect x='7' y='35' width='22' height='22' rx='5' fill='%23f2b179'/%3E%3Crect x='35' y='35' width='22' height='22' rx='5' fill='%23edc22e'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="guide.css">
+<!-- Cloudflare Web Analytics --><script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "6fc01bf3ac5e457ba1bd16b91e5b653e"}'></script><!-- End Cloudflare Web Analytics -->
+</head>
+<body>
+
+<header class="g-site-header no-print">
+  <div class="wrap g-header-inner">
+    <a class="g-brand" href="https://www.reveriel.com/web-game/">
+      <svg class="mark" viewBox="0 0 64 64" aria-hidden="true">
+        <rect width="64" height="64" rx="14" fill="var(--logo-bg)"/>
+        <rect x="7" y="7" width="22" height="22" rx="5" fill="var(--logo-a)"/>
+        <rect x="35" y="7" width="22" height="22" rx="5" fill="var(--logo-a)" opacity=".45"/>
+        <rect x="7" y="35" width="22" height="22" rx="5" fill="var(--logo-b)"/>
+        <rect x="35" y="35" width="22" height="22" rx="5" fill="var(--logo-c)"/>
+      </svg>
+      <div class="g-brand-text">
+        <strong>2048 ゲーム</strong>
+        <span>プライバシーポリシー</span>
+      </div>
+    </a>
+  </div>
+</header>
+
+<main class="wrap">
+  <section class="legal-page">
+    <div class="g-col">
+      <a class="legal-back" href="https://www.reveriel.com/web-game/">← 2048 ゲーム トップへ戻る</a>
+
+      <article class="legal">
+        <h1>プライバシーポリシー</h1>
+        <p class="legal-meta">制定日：2026年10月12日</p>
+
+        <p>
+          本プライバシーポリシー（以下「本ポリシー」といいます）は、当方が提供するブラウザゲーム「2048 ゲーム」（以下「本サービス」といいます）における、
+          利用者の情報の取扱い方針を定めるものです。
+        </p>
+
+        <h2>1. 本サービスの基本方針</h2>
+        <p>
+          本サービスは、<strong>お使いのブラウザ内だけで動作する純粋なウェブゲーム</strong>です。
+          ゲームを遊ぶために個人情報の入力を求めることはなく、当方のサーバーへ送信される情報もありません。
+          アカウント登録やログインも不要です。
+        </p>
+        <p>
+          ゲームの進行はすべてお使いの端末のブラウザ内で計算され、
+          <strong>当方がゲームの内容やスコアを閲覧・取得することは技術的に不可能です</strong>。
+        </p>
+
+        <h2>2. 取得する情報</h2>
+        <p>本サービスにおいて当方が取り扱う情報は、次のものに限られます。</p>
+        <ul>
+          <li><strong>アクセス解析情報</strong> — ページの閲覧状況を把握するための、匿名化された統計情報（後述）。</li>
+          <li><strong>お問い合わせ・フィードバックの内容</strong> — 利用者ご自身が任意で送信された内容（後述）。</li>
+        </ul>
+        <p>
+          ゲームのスコアや設定は、後述のとおり<strong>利用者のブラウザ内にのみ保存</strong>され、当方は取得しません。
+        </p>
+
+        <h2>3. ブラウザ内に保存される情報（localStorage）</h2>
+        <p>
+          本サービスは、利便性のために<strong>お使いのブラウザの localStorage（ブラウザ保存領域）</strong>へ次の情報を保存します。
+        </p>
+        <ul>
+          <li><strong>最高スコア</strong> — 「ベストスコア」を表示するため。</li>
+          <li><strong>音効のオン・オフ設定</strong> — 次回訪問時に設定を引き継ぐため。</li>
+        </ul>
+        <p>
+          これらの情報は<strong>お使いの端末のブラウザ内にだけ保存</strong>され、当方を含む第三者のサーバーへは送信されません。
+          ブラウザの設定からサイトデータを削除すると、いつでも消去できます。
+          別の端末や別のブラウザでは、それぞれ別のスコアが保存されます。
+        </p>
+
+        <h2>4. アクセス解析について（Cloudflare Web Analytics）</h2>
+        <p>
+          本サービスでは、サイトの利用状況を把握し改善するために、<strong>Cloudflare, Inc. が提供する「Cloudflare Web Analytics」</strong>を利用しています。
+          同サービスは Cookie を使用せず、個人を特定する情報を収集しない、プライバシー重視の設計となっています。
+        </p>
+        <p>
+          同サービスの計測のために、利用者のブラウザから Cloudflare の配信サーバーへ通信が発生し、
+          ページビュー数・参照元・閲覧したページ・ブラウザや OS の種類・国・おおよその地域などの<strong>統計的な技術情報</strong>が記録されることがあります。
+          これらは匿名の集計データとして扱われ、個人を識別する目的では利用しません。
+        </p>
+        <p>
+          Cloudflare Web Analytics の詳細および同社のデータ取扱いについては、Cloudflare 社のプライバシーポリシーをご確認ください。
+        </p>
+
+        <h2>5. お問い合わせ・フィードバックについて（Google フォーム）</h2>
+        <p>
+          本サービスでは、ご意見・ご要望・不具合のご報告を受け付けるために、
+          <strong>Google LLC が提供する「Google フォーム」</strong>を利用したフィードバックフォームを設置しています。
+        </p>
+        <p>
+          フォームは利用者が任意で送信するもので、送信された内容（ご意見の本文、および利用者が任意で入力した連絡先など）は、
+          当方が今後の改善のために利用します。フォームの送信内容は Google のサービス上に保存され、同社のプライバシーポリシーが適用されます。
+        </p>
+        <p>
+          フォームのご利用は任意です。送信しなくても、本サービスのゲーム機能はすべてご利用いただけます。
+          なお、フォームには<strong>個人情報など機密性の高い情報を記載しないよう</strong>お願いいたします。
+        </p>
+
+        <h2>6. スコアの共有機能について（X など外部サービス）</h2>
+        <p>
+          本サービスには、ゲーム終了時にスコアカード画像を作成し、<strong>X（旧 Twitter）などの外部サービスへ共有できる機能</strong>があります。
+          共有するかどうかは利用者が任意に選べるもので、共有しなくてもゲームは問題なく遊べます。
+        </p>
+        <p>
+          共有ボタンを押すと、利用者の操作によって外部サービスのページが開きます。
+          その際に入力・送信される内容およびその後の取扱いは、<strong>各外部サービス提供者の定める規約・プライバシーポリシーに従うものとします</strong>。
+          当方が共有内容を取得・保存することはありません。
+        </p>
+        <p>
+          なお、スコアカード画像の生成はすべてブラウザ内で行われ、画像が当方のサーバーへ送信されることはありません。
+        </p>
+
+        <h2>7. 個人情報の第三者提供</h2>
+        <p>
+          当方は、上記の解析・フォームの各サービス提供者を除き、取得した情報を第三者へ提供することはありません。
+          ただし、次のいずれかに該当する場合はこの限りではありません。
+        </p>
+        <ol>
+          <li>利用者ご本人の同意がある場合</li>
+          <li>法令に基づき開示が求められた場合</li>
+          <li>人の生命、身体または財産の保護のために必要があり、ご本人の同意を得ることが困難な場合</li>
+        </ol>
+
+        <h2>8. 安全管理</h2>
+        <p>
+          本サービスは HTTPS（TLS）による通信の暗号化に対応しています。
+          また、そもそも利用者の情報をサーバーへ送信しない設計とすることで、
+          情報が外部へ漏えいするリスクを最小化しています。
+        </p>
+
+        <h2>9. 本ポリシーの変更</h2>
+        <p>
+          当方は、法令の変更やサービス内容の変更に応じて、本ポリシーを変更することがあります。
+          変更後の本ポリシーは、本ページに掲示した時点から効力を生じるものとします。
+        </p>
+
+        <h2>10. お問い合わせ窓口</h2>
+        <p>
+          本ポリシーに関するお問い合わせは、下記の運営者情報ページに記載の方法（フィードバックフォーム）よりご連絡ください。
+        </p>
+        <div class="legal-contact">
+          <p>運営者：<strong>GUO XING</strong>（所在地：大阪府大阪市）</p>
+          <p>お問い合わせ：<a href="https://www.reveriel.com/web-game/company.html">運営者情報</a>よりフィードバックフォームにて受け付けます。</p>
+          <p>制定日：2026年10月12日</p>
+        </div>
+      </article>
+    </div>
+  </section>
+</main>
+
+<footer class="g-footer no-print">
+  <div class="wrap">
+    <p>2048 ゲーム — ブラウザだけで遊べる無料のパズルゲーム</p>
+    <p>
+      <a href="https://www.reveriel.com/web-game/privacy.html">プライバシーポリシー</a> ・
+      <a href="https://www.reveriel.com/web-game/company.html">運営者情報</a> ・
+      <a href="https://www.reveriel.com/web-game/2048-kouryaku.html">2048の攻略ガイド</a> ・
+      <a href="https://docs.google.com/forms/d/e/1FAIpQLSfHGUfgAlViT3TFiVtJi_EpJ4ioUpd9oGyaJ7rehEV-gBH_PA/viewform?usp=pp_url&amp;entry.1745177199=2048%E3%82%B2%E3%83%BC%E3%83%A0" target="_blank" rel="noopener">ご意見・フィードバック</a>
+    </p>
+    <p class="related">関連ツール：<a href="https://www.reveriel.com/image-compressor/">画像圧縮</a> ・ <a href="https://www.reveriel.com/ai-diagnosis/">AI仕事診断</a> ・ <a href="https://www.reveriel.com/life-cost-tracker/">生活費トラッカー</a> ・ <a href="https://www.reveriel.com/hanko-generator/">判子・印鑑</a></p>
+  </div>
+</footer>
+
+<a href="https://docs.google.com/forms/d/e/1FAIpQLSfHGUfgAlViT3TFiVtJi_EpJ4ioUpd9oGyaJ7rehEV-gBH_PA/viewform?usp=pp_url&amp;entry.1745177199=2048%E3%82%B2%E3%83%BC%E3%83%A0" target="_blank" rel="noopener" class="feedback-fab" aria-label="ご意見・フィードバックを送る">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+  <span>ご意見・フィードバック</span>
+</a>
+</body>
+</html>

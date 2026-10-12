@@ -617,13 +617,15 @@ kbd {
   height: auto;
 }
 
+/* 4 个按钮（X / LINE / 存图 / 复制链接）：两列两行排列，窄屏也不挤 */
 .share-actions {
   display: flex;
+  flex-wrap: wrap;
   gap: 8px;
   width: 100%;
 }
 
-.share-actions .btn { flex: 1; }
+.share-actions .btn { flex: 1 1 calc(50% - 4px); }
 
 .ov-share .share-hint {
   margin: 0;
@@ -727,4 +729,9 @@ kbd {
 @media (max-width: 600px) {
   .feedback-fab { right: 14px; bottom: 14px; padding: 11px 16px; font-size: 13px; }
   .feedback-fab svg { width: 16px; height: 16px; }
+}
+
+/* 打印时隐藏浮动反馈按钮（与广告位一起），避免遮挡内容 */
+@media print {
+  .feedback-fab, #ad-slot { display: none !important; }
 }

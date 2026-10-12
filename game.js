@@ -162,7 +162,9 @@
   var ovShare = $('#ov-share');
   var sharePreview = $('#share-preview');
   var btnShareX = $('#btn-share-x');
+  var btnShareLine = $('#btn-share-line');
   var btnSavePng = $('#btn-save-png');
+  var btnCopyLink = $('#btn-copy-link');
 
   /* ------------------------------------------------------------ 运行状态 */
 
@@ -843,8 +845,49 @@
     if (sharePreview) sharePreview.textContent = '';
   }
 
+  /* LINE は日本で最も使われる共有先。テキスト + URL を渡すだけの公式シェア画面を開く。 */
+  function shareOnLine() {
+    var url = 'https://social-plugins.line.me/lineit/share' +
+      '?url=' + encodeURIComponent(SHARE_URL) +
+      '&text=' + encodeURIComponent(buildShareText());
+    window.open(url, '_blank', 'noopener,noreferrer,width=600,height=600');
+  }
+
+  /* リンクをコピー：成功したらボタン文言を一時的に差し替えて知らせる。 */
+  function copyShareLink() {
+    var label = btnCopyLink ? btnCopyLink.textContent : '';
+    var flash = function (text) {
+      if (!btnCopyLink) return;
+      btnCopyLink.textContent = text;
+      window.setTimeout(function () { btnCopyLink.textContent = label; }, 1600);
+    };
+    var legacy = function () {
+      try {
+        var ta = document.createElement('textarea');
+        ta.value = SHARE_URL;
+        ta.setAttribute('readonly', '');
+        ta.style.position = 'fixed';
+        ta.style.opacity = '0';
+        document.body.appendChild(ta);
+        ta.select();
+        var ok = document.execCommand('copy');
+        document.body.removeChild(ta);
+        flash(ok ? 'コピーしました' : 'コピーできません');
+      } catch (e) { flash('コピーできません'); }
+    };
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(SHARE_URL).then(function () {
+        flash('コピーしました');
+      }, legacy);
+    } else {
+      legacy();
+    }
+  }
+
   if (btnShareX) btnShareX.addEventListener('click', shareOnX);
+  if (btnShareLine) btnShareLine.addEventListener('click', shareOnLine);
   if (btnSavePng) btnSavePng.addEventListener('click', saveShareImage);
+  if (btnCopyLink) btnCopyLink.addEventListener('click', copyShareLink);
 
   /* -------------------------------------------------------------- 遮罩层 */
 
