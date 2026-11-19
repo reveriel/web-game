@@ -1,24 +1,24 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="ja">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, maximum-scale=1, user-scalable=no">
 <meta name="theme-color" content="#faf8f4" media="(prefers-color-scheme: light)">
 <meta name="theme-color" content="#16151a" media="(prefers-color-scheme: dark)">
-<meta name="description" content="2048 —— 滑动合并相同数字，冲击 2048 方块。移动端触控与键盘均可玩。">
-<title>2048 · 合并数字</title>
+<meta name="description" content="2048は、同じ数字のタイルを合体させて2048を目指す無料のパズルゲームです。スマホのスワイプとキーボード操作に対応。インストール不要、ブラウザだけで遊べます。">
+<title>2048｜数字を合体させる無料パズルゲーム</title>
 <link rel="canonical" href="https://www.reveriel.com/web-game/">
 <meta property="og:type" content="website">
-<meta property="og:title" content="2048 · 合并数字">
-<meta property="og:description" content="滑动合并相同数字，冲击 2048 方块。移动端触控与键盘均可玩。">
+<meta property="og:title" content="2048｜数字を合体させる無料パズルゲーム">
+<meta property="og:description" content="同じ数字のタイルを合体させて2048を目指す無料パズルゲーム。スマホのスワイプとキーボード操作に対応。">
 <meta property="og:url" content="https://www.reveriel.com/web-game/">
-<meta property="og:locale" content="zh_CN">
+<meta property="og:locale" content="ja_JP">
 <meta property="og:image" content="https://www.reveriel.com/web-game/og-image.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="https://www.reveriel.com/web-game/og-image.png">
-<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"WebApplication","name":"2048","url":"https://www.reveriel.com/web-game/","applicationCategory":"GameApplication","operatingSystem":"Web","inLanguage":"zh-CN","isAccessibleForFree":true,"offers":{"@type":"Offer","price":"0","priceCurrency":"JPY"},"description":"滑动合并相同数字，冲击 2048 方块的经典益智游戏，支持移动端触控与键盘。"}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"WebApplication","name":"2048","url":"https://www.reveriel.com/web-game/","applicationCategory":"GameApplication","operatingSystem":"Web","inLanguage":"ja","isAccessibleForFree":true,"offers":{"@type":"Offer","price":"0","priceCurrency":"JPY"},"description":"同じ数字のタイルを合体させて2048を目指す無料のパズルゲーム。スマホのスワイプとキーボード操作に対応。"}]}</script>
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%231b1a17'/%3E%3Crect x='7' y='7' width='22' height='22' rx='5' fill='%23eee4da'/%3E%3Crect x='35' y='7' width='22' height='22' rx='5' fill='%23eee4da' opacity='.45'/%3E%3Crect x='7' y='35' width='22' height='22' rx='5' fill='%23f2b179'/%3E%3Crect x='35' y='35' width='22' height='22' rx='5' fill='%23edc22e'/%3E%3C/svg%3E">
 <link rel="stylesheet" href="style.css">
 <!-- Cloudflare Web Analytics --><script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "6fc01bf3ac5e457ba1bd16b91e5b653e"}'></script><!-- End Cloudflare Web Analytics -->
@@ -38,12 +38,12 @@
       </svg>
       <div class="brand-text">
         <h1>2048</h1>
-        <p>合并数字，冲击 2048</p>
+        <p>数字を合体して 2048 を目指そう</p>
       </div>
     </div>
 
     <div class="controls">
-      <button id="btn-sound" class="icon-btn" type="button" aria-label="音效开关" aria-pressed="true" title="音效开关">
+      <button id="btn-sound" class="icon-btn" type="button" aria-label="サウンド切替" aria-pressed="true" title="サウンド切替">
         <svg class="i-on" viewBox="0 0 24 24" aria-hidden="true">
           <path d="M4 9.5h3.2L11.5 6v12L7.2 14.5H4z"/>
           <path d="M15.2 9.2a4 4 0 0 1 0 5.6"/>
@@ -55,7 +55,7 @@
         </svg>
       </button>
 
-      <button id="btn-pause" class="icon-btn" type="button" aria-label="暂停" title="暂停 / 继续">
+      <button id="btn-pause" class="icon-btn" type="button" aria-label="一時停止" title="一時停止 / 再開">
         <svg class="i-pause" viewBox="0 0 24 24" aria-hidden="true">
           <path d="M9 5v14M15 5v14"/>
         </svg>
@@ -64,7 +64,7 @@
         </svg>
       </button>
 
-      <button id="btn-restart" class="icon-btn" type="button" aria-label="重新开始" title="重新开始">
+      <button id="btn-restart" class="icon-btn" type="button" aria-label="はじめから" title="はじめから">
         <svg viewBox="0 0 24 24" aria-hidden="true">
           <path d="M20 12a8 8 0 1 1-2.4-5.7"/>
           <path d="M20 4.5V10h-5.4"/>
@@ -78,25 +78,25 @@
 
       <div class="stats">
         <div class="stat" id="score-box">
-          <span class="stat-label">分数</span>
+          <span class="stat-label">スコア</span>
           <strong id="score">0</strong>
         </div>
         <div class="stat">
-          <span class="stat-label">最高分</span>
+          <span class="stat-label">ベスト</span>
           <strong id="best">0</strong>
         </div>
       </div>
 
       <p class="howto">
-        <strong>怎么玩</strong>
-        <span class="hint-touch">在棋盘上向四个方向滑动，所有方块一起移动；两个相同数字相撞就合并成它们的和。每走一步会随机出现一个新方块，棋盘塞满且无法合并时游戏结束。</span>
-        <span class="hint-keys">使用 <kbd>↑</kbd> <kbd>↓</kbd> <kbd>←</kbd> <kbd>→</kbd>（或 <kbd>W</kbd><kbd>A</kbd><kbd>S</kbd><kbd>D</kbd>）移动方块；两个相同数字相撞会合并成它们的和。每走一步随机出现一个新方块，棋盘塞满且无法合并时游戏结束。<kbd>P</kbd> 暂停，<kbd>R</kbd> 重开。</span>
+        <strong>遊び方</strong>
+        <span class="hint-touch">盤面を上下左右にスワイプすると、すべてのタイルが同じ方向に動きます。同じ数字どうしがぶつかると合体して1枚になります。1手ごとに新しいタイルが1枚現れ、盤面がいっぱいになって動かせなくなるとゲーム終了です。</span>
+        <span class="hint-keys"><kbd>↑</kbd> <kbd>↓</kbd> <kbd>←</kbd> <kbd>→</kbd>（または <kbd>W</kbd><kbd>A</kbd><kbd>S</kbd><kbd>D</kbd>）でタイルを動かします。同じ数字どうしがぶつかると合体します。1手ごとに新しいタイルが1枚現れ、盤面がいっぱいになって動かせなくなるとゲーム終了です。<kbd>P</kbd> で一時停止、<kbd>R</kbd> でやり直し。</span>
       </p>
 
     </div>
 
     <div class="board-wrap">
-      <div id="board" role="application" aria-label="2048 棋盘">
+      <div id="board" role="application" aria-label="2048 の盤面">
         <div id="grid" aria-hidden="true"></div>
         <div id="tiles" aria-hidden="true"></div>
         <div id="fx" aria-hidden="true"></div>
@@ -104,14 +104,14 @@
     </div>
   </main>
 
-  <!-- 广告位占位（上线时填入广告位代码，注意不要遮住棋盘与按钮）
+  <!-- 広告枠のプレースホルダ（公開時に広告タグを設置。盤面とボタンを覆わないこと）
   <div id="ad-slot" aria-hidden="true"></div>
   -->
 
   <footer class="footer">
-    <span>纯前端小游戏 · 无需联网 · 最高分保存在本机</span>
+    <span>ブラウザだけで遊べる無料ゲーム・通信不要・ベストスコアは端末に保存</span>
     <span class="dot" aria-hidden="true"></span>
-    <span>用方向键 / 滑动操作</span>
+    <span>矢印キー / スワイプで操作</span>
     <span class="dot" aria-hidden="true"></span>
     <a class="footer-link" href="2048-kouryaku.html">2048の攻略ガイド</a>
     <span class="dot" aria-hidden="true"></span>
@@ -132,17 +132,17 @@
       <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3.4 14.9 9l6.1.9-4.4 4.3 1 6.1-5.6-2.9-5.6 2.9 1-6.1L3 9.9 9.1 9z"/></svg>
     </div>
     <h2 id="ov-title">2048</h2>
-    <p id="ov-text">滑动合并相同数字。</p>
+    <p id="ov-text">同じ数字をスワイプで合体させよう。</p>
     <div class="ov-stats" id="ov-stats" hidden>
-      <div class="ov-stat"><span id="ov-score">0</span><small>本局分数</small></div>
+      <div class="ov-stat"><span id="ov-score">0</span><small>今回のスコア</small></div>
       <div class="ov-stat"><span id="ov-best">0</span><small>最高分</small></div>
     </div>
     <div class="ov-actions">
-      <button id="ov-primary" class="btn btn-primary" type="button">开始游戏</button>
-      <button id="ov-secondary" class="btn btn-ghost" type="button">重新开始</button>
+      <button id="ov-primary" class="btn btn-primary" type="button">ゲーム開始</button>
+      <button id="ov-secondary" class="btn btn-ghost" type="button">はじめから</button>
     </div>
 
-    <!-- 分数分享卡：仅在 win / lose 时显示 -->
+    <!-- スコア共有カード：win / lose 時のみ表示 -->
     <div class="ov-share" id="ov-share" hidden>
       <p class="ov-share-title">スコアカード</p>
       <div id="share-preview" class="share-preview" role="img" aria-label="スコアカードのプレビュー"></div>

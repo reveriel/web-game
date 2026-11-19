@@ -607,7 +607,7 @@
   function syncControls() {
     btnPause.disabled = (state === 'ready' || state === 'over');
     btnPause.setAttribute('data-mode', (state === 'paused') ? 'resume' : 'pause');
-    btnPause.setAttribute('aria-label', state === 'paused' ? '继续' : '暂停');
+    btnPause.setAttribute('aria-label', state === 'paused' ? '再開' : '一時停止');
   }
 
   /* --------------------------------------------------------- 分数分享卡 */
@@ -896,34 +896,34 @@
       ready: {
         badge: true,
         title: '2048',
-        text: '滑动合并相同数字，凑出 2048 方块。',
+        text: '同じ数字をスワイプで合体させて、2048 を目指そう。',
         stats: false,
-        primary: '开始游戏',
+        primary: 'ゲーム開始',
         secondary: null
       },
       paused: {
         badge: false,
-        title: '已暂停',
-        text: '随时回来继续这一局。',
+        title: '一時停止中',
+        text: 'いつでも続きから再開できます。',
         stats: false,
-        primary: '继续游戏',
-        secondary: '重新开始'
+        primary: 'ゲームを再開',
+        secondary: 'はじめから'
       },
       won: {
         badge: true,
-        title: '达成 2048!',
-        text: '厉害，还能走多远？',
+        title: '2048 達成！',
+        text: 'ここからどこまで伸ばせるでしょうか。',
         stats: false,
-        primary: '继续挑战',
-        secondary: '重新开始',
+        primary: 'このまま続ける',
+        secondary: 'はじめから',
         share: true
       },
       over: {
         badge: false,
-        title: newRecord ? '新纪录!' : '游戏结束',
-        text: newRecord ? '刷新了本机最高分。' : '没有可移动的方块了。',
+        title: newRecord ? '新記録！' : 'ゲームオーバー',
+        text: newRecord ? 'ベストスコアを更新しました。' : '動かせるタイルがなくなりました。',
         stats: true,
-        primary: '再来一局',
+        primary: 'もう一局あそぶ',
         secondary: null,
         share: true
       }
